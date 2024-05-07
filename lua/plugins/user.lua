@@ -1,5 +1,3 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- You can also add or configure plugins by creating files in this `plugins/` folder
 -- Here are some examples:
 
@@ -81,5 +79,80 @@ return {
         Rule("a", "a", "-vim")
       )
     end,
+  },
+  {
+    -- further customize the options set by the community
+    "zbirenbaum/copilot.lua",
+    opts = {
+      suggestion = {
+        keymap = {
+          accept = false,
+          accept_word = "<C-l>",
+          accept_line = "<C-Tab>",
+          next = "<C-j>",
+          prev = "<C-k>",
+          dismiss = "<C-/>",
+        },
+      },
+      filetypes = {
+        markdown = true,
+        yaml = false,
+        help = false,
+        gitcommit = false,
+        gitrebase = false,
+        hgcommit = false,
+        svn = false,
+        cvs = false,
+        ["."] = false,
+      },
+    },
+  },
+  {
+    "m4xshen/smartcolumn.nvim",
+    opts = {
+      colorcolumn = 120,
+      disabled_filetypes = { "help" },
+    },
+  },
+  {
+    "jay-babu/project.nvim",
+    main = "project_nvim",
+    event = "VeryLazy",
+    opts = {
+      manual_mode = false,
+      detection_methods = { "lsp", "pattern" },
+      patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json" },
+      ignore_lsp = { "null-ls", "efm", "copilot" },
+      exclude_dirs = { "./logs", "./log", "./tmp", "./.vscode", "./build", "./devel" },
+      show_hidden = false,
+      silent_chdir = true,
+      scope_chdir = "global",
+      datapath = vim.fn.stdpath "data",
+    },
+  },
+  {
+    "danymat/neogen",
+    opts = {
+      enabled = true,
+      input_after_comment = true,
+    },
+  },
+  {
+    "jay-babu/mason-null-ls.nvim",
+    opts = function(_, opts)
+      local utils = require "astrocore"
+      opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "autopep8", "isort" })
+    end,
+  },
+  {
+    "tadachs/ros-nvim",
+    config = function() require("ros-nvim").setup { only_workspace = true } end,
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
+
+  {
+    "jghauser/auto-pandoc.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    ft = "markdown",
   },
 }
