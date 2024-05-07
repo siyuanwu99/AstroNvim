@@ -161,6 +161,17 @@ return {
         ["J"] = { ":m '>+1<CR>gv=gv", desc = "Edit: Move this line down" },
         ["K"] = { ":m '<-2<CR>gv=gv", desc = "Edit: Move this line up" },
       },
+      -- Insert Mode --
+      i = {
+        ["<C-\\>"] = { "<Esc><Cmd>ToggleTerm direction=horizontal<CR>", desc = "Terminal: Toggle horizontal" },
+        ["<A-\\>"] = { "<Esc><Cmd>ToggleTerm direction=vertical<CR>", desc = "Terminal: Toggle horizontal" },
+      },
+
+      -- Visual Mode --
+      v = {
+        ["J"] = { ":m '>+1<CR>gv=gv", desc = "Edit: Move this line down" },
+        ["K"] = { ":m '<-2<CR>gv=gv", desc = "Edit: Move this line up" },
+      },
     },
   },
 }
