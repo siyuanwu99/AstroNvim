@@ -1,5 +1,3 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
 -- Configuration documentation can be found with `:h astrocore`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
@@ -66,6 +64,17 @@ return {
 
         -- setting a mapping to false will disable it
         -- ["<C-S>"] = false,
+      },
+      -- Insert Mode --
+      i = {
+        ["<C-\\>"] = { "<Esc><Cmd>ToggleTerm direction=horizontal<CR>", desc = "Terminal: Toggle horizontal" },
+        ["<A-\\>"] = { "<Esc><Cmd>ToggleTerm direction=vertical<CR>", desc = "Terminal: Toggle horizontal" },
+      },
+
+      -- Visual Mode --
+      v = {
+        ["J"] = { ":m '>+1<CR>gv=gv", desc = "Edit: Move this line down" },
+        ["K"] = { ":m '<-2<CR>gv=gv", desc = "Edit: Move this line up" },
       },
     },
   },
