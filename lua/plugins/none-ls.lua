@@ -26,6 +26,8 @@ return {
           "scss",
           "sh",
           "markdown",
+          "cpp",
+          "python",
         },
       },
     }
