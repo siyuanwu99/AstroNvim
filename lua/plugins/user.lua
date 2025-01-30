@@ -108,13 +108,6 @@ return {
     },
   },
   {
-    "m4xshen/smartcolumn.nvim",
-    opts = {
-      colorcolumn = 120,
-      disabled_filetypes = { "help" },
-    },
-  },
-  {
     "jay-babu/project.nvim",
     main = "project_nvim",
     event = "VeryLazy",
